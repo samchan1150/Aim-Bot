@@ -10,11 +10,17 @@
   <h1>Aim Bot Game</h1>
   <div id="game-container">
     <div id="game-area">
-      <div id="target"></div>
+      <div id="target">
+        <div class="ring outer-ring"></div>
+        <div class="ring middle-ring"></div>
+        <div class="ring inner-ring"></div>
+        <div class="ring center-ring"></div>
+      </div>
     </div>
     <div id="controls">
       <p>Time Left: <span id="time">30</span>s</p>
       <p>Score: <span id="score">0</span></p>
+      <p>Accuracy: <span id="accuracy">0</span></p>
       <button id="start-button">Start Game</button>
     </div>
   </div>

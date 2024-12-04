@@ -25,13 +25,59 @@ body {
   }
   
   #target {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     background-color: #e74c3c;
     border-radius: 50%;
     position: absolute;
     display: none;
     cursor: pointer;
+  }
+
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .outer-ring {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+  }
+
+  .middle-ring {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background-color: white;
+  }
+
+  .inner-ring {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    background-color: red;
+  }
+
+  .center-ring {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    background-color: white;
+  }
+
+  .center-ring::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    background-color: red;
+    border-radius: 50%;
   }
   
   #controls {

@@ -3,16 +3,23 @@ const target = document.getElementById('target');
 const startButton = document.getElementById('start-button');
 const timeDisplay = document.getElementById('time');
 const scoreDisplay = document.getElementById('score');
+const targetSize = 60; // Should match the width and height in CSS
+const accuracyDisplay = document.getElementById('accuracy');
 
 let time = 30; // Game duration in seconds
 let score = 0;
+let totalClicks = 0;
+let accuracy = 0;
 let timer;
 let countdown;
 
 function startGame() {
   score = 0;
+  totalClicks = 0;
+  accuracy = 0;
   time = 30;
   scoreDisplay.textContent = score;
+  accuracyDisplay.textContent = accuracy;
   timeDisplay.textContent = time;
   startButton.disabled = true;
   target.style.display = 'block';
@@ -24,7 +31,7 @@ function endGame() {
   clearInterval(countdown);
   target.style.display = 'none';
   startButton.disabled = false;
-  alert(`Game Over! Your score: ${score}`);
+  alert(`Game Over! Your score: ${score}\nAccuracy: ${accuracy}%`);
 }
 
 function updateTime() {
@@ -49,9 +56,19 @@ function moveTarget() {
   target.style.top = `${randomY}px`;
 }
 
-target.addEventListener('click', () => {
+gameArea.addEventListener('click', () => {
+  totalClicks++;
+  accuracy = ((score / totalClicks) * 100).toFixed(2);
+  accuracyDisplay.textContent = accuracy;
+});
+
+target.addEventListener('click', (event) => {
+  event.stopPropagation(); // Prevent the click from triggering the gameArea click event
   score++;
+  totalClicks++;
+  accuracy = ((score / totalClicks) * 100).toFixed(2);
   scoreDisplay.textContent = score;
+  accuracyDisplay.textContent = accuracy;
   moveTarget();
 });
 
