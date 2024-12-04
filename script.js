@@ -59,7 +59,7 @@ function moveTarget() {
 gameArea.addEventListener('click', () => {
   totalClicks++;
   accuracy = ((score / totalClicks) * 100).toFixed(2);
-  accuracyDisplay.textContent = accuracy;
+  accuracyDisplay.textContent = accuracy+' %';
 });
 
 target.addEventListener('click', (event) => {
@@ -68,7 +68,7 @@ target.addEventListener('click', (event) => {
   totalClicks++;
   accuracy = ((score / totalClicks) * 100).toFixed(2);
   scoreDisplay.textContent = score;
-  accuracyDisplay.textContent = accuracy;
+  accuracyDisplay.textContent = accuracy+' %';
   moveTarget();
 });
 
